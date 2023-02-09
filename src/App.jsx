@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as API from "./services/podcasts";
 import "./styles/app.scss";
+import { PodcastList } from "./components/PodcastList";
 
 export function App() {
   const [podcasts, setPodcasts] = useState([]);
@@ -11,7 +12,6 @@ export function App() {
   useEffect(() => {
     const lastFetchDate = localStorage.getItem("lastFetchDate");
     const currentDate = new Date();
-
     if (
       lastFetchDate &&
       currentDate - new Date(lastFetchDate) < 24 * 60 * 60 * 1000
@@ -36,13 +36,18 @@ export function App() {
     );
   }, [filterText, podcasts]);
 
+  const handlePodcastClick = (podcast) => {
+    console.log(`Se hizo clic en el podcast: ${podcast["im:name"].label}`);
+    // Aquí se puede agregar la lógica necesaria para navegar a la vista con el detalle del podcast.
+  };
+
   console.log(podcasts);
   return (
-    <div class="content-page">
-      <div class="navbar">
+    <div className="content-page">
+      <div className="navbar">
         <h1>Podcaster</h1>
       </div>
-      <div class="searchbar">
+      <div className="searchbar">
         <span>{filteredPodcasts.length}</span>
         <input
           type="text"
@@ -54,15 +59,11 @@ export function App() {
       {podcasts.length === 0 ? (
         <p>Cargando podcasts...</p>
       ) : (
-        <div class="podcasts-list">
-          {filteredPodcasts.map((podcast) => (
-            <div class="podcasts-list__item" key={podcast.id.attributes["im:id"]}>
-              <img src={podcast["im:image"][2].label} alt={podcast.title.label} />
-              <h3>{podcast["im:name"].label}</h3>
-              <p>Author: {podcast["im:artist"].label}</p>
-            </div>
-          ))}
-        </div>
+        <PodcastList
+          podcasts={filteredPodcasts}
+          filterText={filterText}
+          onPodcastClick={handlePodcastClick}
+        />
       )}
     </div>
   );

@@ -70,6 +70,7 @@ body {
     position: relative;
     padding: 50px 10px 0 10px;
     margin-bottom: 100px;
+    cursor: pointer;
     img{
       width: 100px;
       height: 100px;
@@ -101,7 +102,13 @@ body {
 }
 
 @media (max-width: 767px) {
+  .searchbar{
+    justify-content: center;
+  }
   .podcasts-list {
     grid-template-columns: repeat(1, 1fr);
+    &__item{
+      margin-bottom: 80px;
+    }
   }
 }
