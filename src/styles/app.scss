@@ -1,0 +1,107 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+.content-page{
+  position: relative;
+  overflow: hidden;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgb(0 0 0 / 4%);
+  background: white;
+  padding: 0 32px;
+}
+
+/* NavBar */
+.navbar{
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e5e5;
+  h1{
+    color: #5b47ff;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+}
+
+/* Searchbar */
+.searchbar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 16px 16px 80px 0;
+  span{
+    background-color: #5b47ff;
+    border-radius: 6px;
+    padding: 2px 5px;
+    font-size: 13px;
+    color: #FFFFFF;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  input{
+    border-radius: 4px;
+    border: 1px solid #dddddd;
+    padding: 5px 10px;
+    min-width: 180px;
+    width: 20vw;
+    font-size: 12px;
+    color: #333;
+    &::placeholder{
+      font-size: 12px;
+      color: #666;
+    }
+  }
+}
+
+/* Podcast list */
+.podcasts-list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  &__item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 50px 10px 0 10px;
+    margin-bottom: 100px;
+    img{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      z-index: 1;
+    }
+    h3{
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 5px;
+      text-transform: uppercase;
+      margin-bottom: 0;
+      text-align: center;
+      color: #333333;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    p{
+      font-size: 12px;
+      font-weight: 400;
+      color: #666666;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .podcasts-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as API from "./services/podcasts";
+import "./styles/app.scss";
 
 export function App() {
   const [podcasts, setPodcasts] = useState([]);
@@ -37,23 +38,31 @@ export function App() {
 
   console.log(podcasts);
   return (
-    <div>
-      <h1>Podcasts</h1>
-      <input
-        type="text"
-        value={filterText}
-        onChange={(e) => setFilterText(e.target.value.toLowerCase())}
-      />
+    <div class="content-page">
+      <div class="navbar">
+        <h1>Podcaster</h1>
+      </div>
+      <div class="searchbar">
+        <span>{filteredPodcasts.length}</span>
+        <input
+          type="text"
+          value={filterText}
+          placeholder="Filter podcasts..."
+          onChange={(e) => setFilterText(e.target.value)}
+        />
+      </div>
       {podcasts.length === 0 ? (
         <p>Cargando podcasts...</p>
       ) : (
-        <ul>
+        <div class="podcasts-list">
           {filteredPodcasts.map((podcast) => (
-            <li key={podcast.id.attributes["im:id"]}>
-              {podcast["im:artist"].label} - {podcast["im:name"].label}
-            </li>
+            <div class="podcasts-list__item" key={podcast.id.attributes["im:id"]}>
+              <img src={podcast["im:image"][2].label} alt={podcast.title.label} />
+              <h3>{podcast["im:name"].label}</h3>
+              <p>Author: {podcast["im:artist"].label}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
