@@ -1,7 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
+
 import * as API from "../services/podcasts";
 
 export function PodcastList({ podcasts, filterText }) {
+  const [podcastItem, setPodcastItem] = useState([]);
 
   const handlePodcastClick = (podcastId) => {
     console.log(`Se hizo clic en el podcast con id: ${podcastId}`);

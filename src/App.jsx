@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import { NavBar } from "./components/NavBar";
+import { SearchBar } from "./components/SearchBar";
+import { PodcastList } from "./components/PodcastList";
+
 import * as API from "./services/podcasts";
 import "./styles/app.scss";
-import { PodcastList } from "./components/PodcastList";
 
 export function App() {
   const [podcasts, setPodcasts] = useState([]);
   const [filteredPodcasts, setFilteredPodcasts] = useState([]);
   const [filterText, setFilterText] = useState("");
-  const [podcastItem, setPodcastItem] = useState([]);
 
   /* Almacenamos en cliente los datos y volvemos a consultar si ha pasado más de 1 día */
   useEffect(() => {
@@ -40,26 +44,20 @@ export function App() {
   console.log(podcasts);
   return (
     <div className="content-page">
-      <div className="navbar">
-        <h1>Podcaster</h1>
-      </div>
-      <div className="searchbar">
-        <span>{filteredPodcasts.length}</span>
-        <input
-          type="text"
-          value={filterText}
-          placeholder="Filter podcasts..."
-          onChange={(e) => setFilterText(e.target.value)}
+      <NavBar />
+      <SearchBar
+        filterText={filterText}
+        setFilterText={setFilterText}
+        filteredPodcasts={filteredPodcasts}
+      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PodcastList podcasts={filteredPodcasts} filterText={filterText} />
+          }
         />
-      </div>
-      {podcasts.length === 0 ? (
-        <p>Cargando podcasts...</p>
-      ) : (
-        <PodcastList
-          podcasts={filteredPodcasts}
-          filterText={filterText}
-        />
-      )}
+      </Routes>
     </div>
   );
 }
