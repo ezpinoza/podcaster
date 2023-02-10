@@ -1,8 +1,14 @@
 import React from "react";
+import * as API from "../services/podcasts";
 
-export function PodcastList({ podcasts, filterText, onFilterTextChange }) {
-  const handlePodcastClick = (id) => {
-    console.log(`Podcast with id ${id} was clicked`);
+export function PodcastList({ podcasts, filterText }) {
+
+  const handlePodcastClick = (podcastId) => {
+    console.log(`Se hizo clic en el podcast con id: ${podcastId}`);
+    // Aquí se puede agregar la lógica necesaria para navegar a la vista con el detalle del podcast.
+    API.getPodcastById(podcastId).then((data) => {
+      setPodcastItem(data);
+    });
   };
 
   return (

@@ -7,6 +7,7 @@ export function App() {
   const [podcasts, setPodcasts] = useState([]);
   const [filteredPodcasts, setFilteredPodcasts] = useState([]);
   const [filterText, setFilterText] = useState("");
+  const [podcastItem, setPodcastItem] = useState([]);
 
   /* Almacenamos en cliente los datos y volvemos a consultar si ha pasado más de 1 día */
   useEffect(() => {
@@ -36,11 +37,6 @@ export function App() {
     );
   }, [filterText, podcasts]);
 
-  const handlePodcastClick = (podcast) => {
-    console.log(`Se hizo clic en el podcast: ${podcast["im:name"].label}`);
-    // Aquí se puede agregar la lógica necesaria para navegar a la vista con el detalle del podcast.
-  };
-
   console.log(podcasts);
   return (
     <div className="content-page">
@@ -62,7 +58,6 @@ export function App() {
         <PodcastList
           podcasts={filteredPodcasts}
           filterText={filterText}
-          onPodcastClick={handlePodcastClick}
         />
       )}
     </div>

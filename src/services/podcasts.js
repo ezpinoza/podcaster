@@ -10,3 +10,15 @@ export async function getAllPodcasts() {
     console.log(error);
   }
 }
+
+export async function getPodcastById(id) {
+  console.log("id", id);
+  try{
+    const response = await fetch(`https://itunes.apple.com/lookup?id=${id}`);
+    const data = await response.json();
+    console.log("Podcast ", data.results[0]);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
