@@ -2,7 +2,9 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
 }
-
+a{
+  text-decoration: none;
+}
 .content-page {
   position: relative;
   overflow: hidden;
@@ -18,7 +20,7 @@ body {
   padding: 8px 0;
   border-bottom: 1px solid #e5e5e5;
   h1 {
-    color: #5b47ff;
+    color: #3c22ff;
     font-size: 18px;
     margin-bottom: 0;
   }
@@ -31,7 +33,7 @@ body {
   justify-content: flex-end;
   margin: 16px 16px 80px 0;
   span {
-    background-color: #5b47ff;
+    background-color: #3c22ff;
     border-radius: 6px;
     padding: 2px 5px;
     font-size: 13px;
@@ -72,7 +74,6 @@ body {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-decoration: none;
       img {
         width: 100px;
         height: 100px;
@@ -107,10 +108,10 @@ body {
 
 .content-podcast-detail {
   padding: 16px 0;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 20px;
+  display: flex;
+  align-items: flex-start;
   &__info {
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -141,6 +142,60 @@ body {
       margin: 5px 0;
       font-style: italic;
       font-size: 14px;
+    }
+  }
+  .content-episodes-list{
+    margin-left: 60px;
+    width: calc(100% - 250px);
+    &__header{
+      border: 1px solid #dddddd;
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+      h4{
+        margin: 0;
+      }
+    }
+    &__body{
+      border: 1px solid #dddddd;
+      padding: 0 16px 16px 16px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.2);
+      margin-top: 16px;
+      max-height: calc(100vh - 200px);
+      overflow-y: scroll;
+      z-index: 2;
+      table{
+        width: 100%;
+        border-collapse: collapse;
+        z-index: 1;
+        thead {
+          position: sticky;
+          top: 0;
+          background-color: white;
+          border-bottom: 1px solid #cccccc
+        }
+        th{
+          text-align: left;
+          padding: 16px 0 8px 0;
+          font-size: 14px;
+          font-weight: 700;
+          color: #333;
+        }
+        tr{
+          td{
+            padding: 8px 5px;
+            font-size: 13px;
+            border-bottom: 1px solid #dddddd;
+            &:first-child{
+              color: #3c22ff;
+            }
+          }
+        }
+        .odd{
+          background-color: #f9f9f9;
+        }
+      }
     }
   }
 }

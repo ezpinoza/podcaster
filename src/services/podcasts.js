@@ -22,3 +22,15 @@ export async function getPodcastById(id) {
     console.log(error);
   }
 }
+
+export async function getEpisodesByPoscastId(id) {
+  console.log("id", id);
+  try{
+    const response = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode&limit=200`);
+    const data = await response.json();
+    console.log("Episodes ", data);
+    return data.results;
+  } catch (error) {
+    console.log(error);
+  }
+}
