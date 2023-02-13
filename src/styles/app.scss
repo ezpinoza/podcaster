@@ -135,6 +135,8 @@ a{
     img, &__img{
       align-self: center;
       border-radius: 4px;
+      height: 170px;
+      width: 170px;
     }
     h5 {
       font-size: 14px;
@@ -146,6 +148,11 @@ a{
       word-wrap: break-word;
       overflow-wrap: break-word;
       word-break: break-all;
+    }
+    a h4, a span{
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
   .content-episodes-list{
