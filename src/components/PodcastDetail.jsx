@@ -1,25 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import * as API from "../services/podcasts";
-
-const convertMillisecondsToTime = milliseconds => {
-  let seconds = milliseconds / 1000;
-  let minutes = Math.floor(seconds / 60);
-  seconds = Math.floor(seconds % 60);
-  let hours = Math.floor(minutes / 60);
-  minutes = minutes % 60;
-
-  return `${hours}:${minutes}:${seconds}`;
-};
-
-const convertDate = date => {
-  return new Date(date).toLocaleDateString("es-ES", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  });
-};
+import { convertMillisecondsToTime, convertDate } from "../utils/utils";
 
 export function PodcastDetail() {
   const { id } = useParams();
@@ -83,7 +66,7 @@ export function PodcastDetail() {
             <tbody>
               {episodes.filter(episode => episode.wrapperType === "podcastEpisode").map((episode, index) => (
                 <tr key={episode.trackId} className={index % 2 === 0 ? "odd" : ""}>
-                  <td>{episode.trackName}</td>
+                  <td><Link to={`/podcast/${id}/episode/${episode.trackId}`}>{episode.trackName}</Link></td>
                   <td>{convertDate(episode.releaseDate)}</td>
                   <td>{convertMillisecondsToTime(episode.trackTimeMillis)}</td>
                 </tr>
