@@ -15,7 +15,12 @@ export function EpisodeDetail() {
     <div className="content-podcast-detail">
       <PodcastInfo podcastId={id} showLink={true} />
       <div className="content-episodes-detail">
-        
+        <h3>{filteredEpisode.trackName}</h3>
+        <p>{filteredEpisode.description}</p>
+        <audio controls>
+          <source src={filteredEpisode.episodeUrl} type="audio/mpeg" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
       </div>
     </div>
   );

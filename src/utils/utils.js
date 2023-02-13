@@ -6,7 +6,11 @@ export const convertMillisecondsToTime = milliseconds => {
   let hours = Math.floor(minutes / 60);
   minutes = minutes % 60;
 
-  return `${hours}:${minutes}:${seconds}`;
+  const pad = value => {
+    return value.toString().padStart(2, "0");
+  };
+
+  return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
 };
 
 /* Función que devuelve la fecha en formato dd/mm/yyyy */
