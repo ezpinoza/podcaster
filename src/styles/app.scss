@@ -142,6 +142,9 @@ a{
       margin: 5px 0;
       font-style: italic;
       font-size: 14px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-all;
     }
   }
   .content-episodes-list{
