@@ -17,6 +17,7 @@ export function EpisodeDetail() {
       <div className="content-episodes-detail">
         <h3>{filteredEpisode.trackName}</h3>
         <p>{filteredEpisode.description}</p>
+        <hr />
         <audio controls>
           <source src={filteredEpisode.episodeUrl} type="audio/mpeg" />
           Tu navegador no soporta audio HTML5.
