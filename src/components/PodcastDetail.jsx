@@ -32,10 +32,25 @@ export function PodcastDetail() {
   const selectedPodcast = filteredPodcast[0];
 
   useEffect(() => {
-    API.getEpisodesByPoscastId(id).then((data) => {
-      setEpisodes(data);
-    });
+    const lastFetchedDate = localStorage.getItem(`lastFetchedDate-${id}`);
+    const now = new Date();
+    const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
+
+    if (!lastFetchedDate || now - new Date(lastFetchedDate) > oneDayInMilliseconds) {
+      API.getEpisodesByPoscastId(id).then((data) => {
+        setEpisodes(data);
+        localStorage.setItem(`lastFetchedDate-${id}`, now);
+      });
+    } else {
+      setEpisodes(JSON.parse(localStorage.getItem(`episodes-${id}`)));
+    }
   }, []);
+
+  useEffect(() => {
+    if (episodes) {
+      localStorage.setItem(`episodes-${id}`, JSON.stringify(episodes));
+    }
+  }, [episodes]);
 
   if (!episodes) {
     return <h1>Loading...</h1>;

@@ -40,7 +40,6 @@ export function PodcastList() {
   }, [filterText, podcasts]);
 
   const handlePodcastClick = (podcastId) => {
-    console.log(`Se hizo clic en el podcast con id: ${podcastId}`);
     // Aquí se puede agregar la lógica necesaria para navegar a la vista con el detalle del podcast.
     API.getPodcastById(podcastId).then((data) => {
       setPodcastItem(data);
@@ -65,7 +64,7 @@ export function PodcastList() {
             <div
               className="podcasts-list__item"
               key={podcast.id.attributes["im:id"]}
-              onClick={() => handlePodcastClick(podcast.id.attributes["im:id"])}
+              //onClick={() => handlePodcastClick(podcast.id.attributes["im:id"])}
             >
               <Link to={`/podcast/${podcast.id.attributes['im:id']}`}>
                 <img
