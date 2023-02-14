@@ -1,6 +1,12 @@
-import React from 'react'
+import { React } from 'react'
 
-export function SearchBar({ filterText, setFilterText, filteredPodcasts }) {
+import PropTypes from 'prop-types'
+
+export default function SearchBar({
+  filterText,
+  setFilterText,
+  filteredPodcasts,
+}) {
   return (
     <div className="searchbar">
       <span>{filteredPodcasts.length}</span>
@@ -12,4 +18,22 @@ export function SearchBar({ filterText, setFilterText, filteredPodcasts }) {
       />
     </div>
   )
+}
+
+SearchBar.propTypes = {
+  filterText: PropTypes.string.isRequired,
+  setFilterText: PropTypes.func.isRequired,
+  filteredPodcasts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.shape({
+        number: PropTypes.number,
+      }).isRequired,
+      title: PropTypes.shape({
+        string: PropTypes.string,
+      }).isRequired,
+      description: PropTypes.shape({
+        string: PropTypes.string,
+      }),
+    })
+  ).isRequired,
 }

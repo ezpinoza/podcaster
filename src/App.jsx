@@ -1,13 +1,14 @@
+import { React } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import { NavBar } from './components/NavBar'
-import { PodcastList } from './components/PodcastList'
+import PodcastList from './components/PodcastList'
 import { PodcastDetail } from './components/PodcastDetail'
 import { EpisodeDetail } from './components/EpisodeDetail'
 
 import './styles/app.scss'
 
-export function App() {
+export default function App() {
   return (
     <div className="content-page">
       <NavBar />

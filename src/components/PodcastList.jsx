@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, React } from 'react'
 import { Link } from 'react-router-dom'
 
-import { SearchBar } from './SearchBar'
+import SearchBar from './SearchBar'
 
 import * as API from '../services/podcasts'
 
-export function PodcastList() {
+export default function PodcastList() {
   const [podcasts, setPodcasts] = useState([])
   const [filteredPodcasts, setFilteredPodcasts] = useState([])
   const [filterText, setFilterText] = useState('')
