@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import { convertMillisecondsToTime, convertDate } from "../utils/utils";
+import { Link } from 'react-router-dom'
+import { convertMillisecondsToTime, convertDate } from '../utils/utils'
 
-export function EpisodesList({episodes, idPodcast}) {
+export function EpisodesList({ episodes, idPodcast }) {
   return (
     <div className="content-episodes-list">
       <div className="content-episodes-list__header">
         <h4>
-          Episodes:{" "}
+          Episodes:{' '}
           {
             episodes.filter(
-              (episode) => episode.wrapperType === "podcastEpisode"
+              (episode) => episode.wrapperType === 'podcastEpisode'
             ).length
           }
         </h4>
@@ -25,14 +25,16 @@ export function EpisodesList({episodes, idPodcast}) {
           </thead>
           <tbody>
             {episodes
-              .filter((episode) => episode.wrapperType === "podcastEpisode")
+              .filter((episode) => episode.wrapperType === 'podcastEpisode')
               .map((episode, index) => (
                 <tr
                   key={episode.trackId}
-                  className={index % 2 === 0 ? "odd" : ""}
+                  className={index % 2 === 0 ? 'odd' : ''}
                 >
                   <td>
-                    <Link to={`/podcast/${idPodcast}/episode/${episode.trackId}`}>
+                    <Link
+                      to={`/podcast/${idPodcast}/episode/${episode.trackId}`}
+                    >
                       {episode.trackName}
                     </Link>
                   </td>
@@ -44,5 +46,5 @@ export function EpisodesList({episodes, idPodcast}) {
         </table>
       </div>
     </div>
-  );
+  )
 }

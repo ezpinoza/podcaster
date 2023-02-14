@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export function SearchBar({ filterText, setFilterText, filteredPodcasts }) {
   return (
@@ -11,5 +11,5 @@ export function SearchBar({ filterText, setFilterText, filteredPodcasts }) {
         onChange={(e) => setFilterText(e.target.value)}
       />
     </div>
-  );
+  )
 }
