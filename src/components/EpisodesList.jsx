@@ -5,16 +5,13 @@ import PropTypes from 'prop-types'
 import { convertMillisecondsToTime, convertDate } from '../utils/utils'
 
 export default function EpisodesList({ episodes, idPodcast }) {
+  const podcastEpisodes = episodes.filter((episode) => episode.wrapperType === 'podcastEpisode')
   return (
     <div className="content-episodes-list">
       <div className="content-episodes-list__header">
         <h4>
           Episodes:{' '}
-          {
-            episodes.filter(
-              (episode) => episode.wrapperType === 'podcastEpisode'
-            ).length
-          }
+          { podcastEpisodes.length }
         </h4>
       </div>
       <div className="content-episodes-list__body">
@@ -27,9 +24,7 @@ export default function EpisodesList({ episodes, idPodcast }) {
             </tr>
           </thead>
           <tbody>
-            {episodes
-              .filter((episode) => episode.wrapperType === 'podcastEpisode')
-              .map((episode, index) => (
+            {podcastEpisodes.map((episode, index) => (
                 <tr
                   key={episode.trackId}
                   className={index % 2 === 0 ? 'odd' : ''}
