@@ -1,7 +1,10 @@
+import { React } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+
 import { convertMillisecondsToTime, convertDate } from '../utils/utils'
 
-export function EpisodesList({ episodes, idPodcast }) {
+export default function EpisodesList({ episodes, idPodcast }) {
   return (
     <div className="content-episodes-list">
       <div className="content-episodes-list__header">
@@ -47,4 +50,17 @@ export function EpisodesList({ episodes, idPodcast }) {
       </div>
     </div>
   )
+}
+
+EpisodesList.propTypes = {
+  episodes: PropTypes.arrayOf(
+    PropTypes.shape({
+      wrapperType: PropTypes.string.isRequired,
+      trackId: PropTypes.number.isRequired,
+      trackName: PropTypes.string.isRequired,
+      releaseDate: PropTypes.string.isRequired,
+      trackTimeMillis: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  idPodcast: PropTypes.string.isRequired,
 }

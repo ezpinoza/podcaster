@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import { NavBar } from './components/NavBar'
 import PodcastList from './components/PodcastList'
-import { PodcastDetail } from './components/PodcastDetail'
-import { EpisodeDetail } from './components/EpisodeDetail'
+import PodcastDetail from './components/PodcastDetail'
+import EpisodeDetail from './components/EpisodeDetail'
 
 import './styles/app.scss'
 

@@ -1,6 +1,9 @@
+import { React } from 'react'
 import { Link } from 'react-router-dom'
 
-export function PodcastInfo({ podcastId, showLink }) {
+import PropTypes from 'prop-types'
+
+export default function PodcastInfo({ podcastId, showLink }) {
   const getLocalPodcasts = JSON.parse(localStorage.getItem('podcasts'))
   const filteredPodcast = getLocalPodcasts.filter(
     (item) => item.id.attributes['im:id'] === podcastId
@@ -45,4 +48,13 @@ export function PodcastInfo({ podcastId, showLink }) {
       <p>{selectedPodcast.summary.label}</p>
     </div>
   )
+}
+
+PodcastInfo.propTypes = {
+  podcastId: PropTypes.string.isRequired,
+  showLink: PropTypes.bool,
+}
+
+PodcastInfo.defaultProps = {
+  showLink: false,
 }
