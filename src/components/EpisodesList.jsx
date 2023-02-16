@@ -1,17 +1,17 @@
-import { Link } from "react-router-dom";
-import { convertMillisecondsToTime, convertDate } from "../utils/utils";
+import { React } from 'react'
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export function EpisodesList({episodes, idPodcast}) {
+import { convertMillisecondsToTime, convertDate } from '../utils/utils'
+
+export default function EpisodesList({ episodes, idPodcast }) {
+  const podcastEpisodes = episodes.filter((episode) => episode.wrapperType === 'podcastEpisode')
   return (
     <div className="content-episodes-list">
       <div className="content-episodes-list__header">
         <h4>
-          Episodes:{" "}
-          {
-            episodes.filter(
-              (episode) => episode.wrapperType === "podcastEpisode"
-            ).length
-          }
+          Episodes:{' '}
+          { podcastEpisodes.length }
         </h4>
       </div>
       <div className="content-episodes-list__body">
@@ -24,15 +24,15 @@ export function EpisodesList({episodes, idPodcast}) {
             </tr>
           </thead>
           <tbody>
-            {episodes
-              .filter((episode) => episode.wrapperType === "podcastEpisode")
-              .map((episode, index) => (
+            {podcastEpisodes.map((episode, index) => (
                 <tr
                   key={episode.trackId}
-                  className={index % 2 === 0 ? "odd" : ""}
+                  className={index % 2 === 0 ? 'odd' : ''}
                 >
                   <td>
-                    <Link to={`/podcast/${idPodcast}/episode/${episode.trackId}`}>
+                    <Link
+                      to={`/podcast/${idPodcast}/episode/${episode.trackId}`}
+                    >
                       {episode.trackName}
                     </Link>
                   </td>
@@ -44,5 +44,18 @@ export function EpisodesList({episodes, idPodcast}) {
         </table>
       </div>
     </div>
-  );
+  )
+}
+
+EpisodesList.propTypes = {
+  episodes: PropTypes.arrayOf(
+    PropTypes.shape({
+      wrapperType: PropTypes.string.isRequired,
+      trackId: PropTypes.number.isRequired,
+      trackName: PropTypes.string.isRequired,
+      releaseDate: PropTypes.string.isRequired,
+      trackTimeMillis: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  idPodcast: PropTypes.string.isRequired,
 }
