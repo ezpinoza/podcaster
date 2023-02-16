@@ -29,10 +29,9 @@ export async function getPodcastById(id) {
 }
 
 export async function getEpisodesByPoscastId(id) {
-  console.log('id', id)
   try {
     const response = await fetch(
-      `https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode&limit=200`
+      `https://cors-anywhere.herokuapp.com/https://itunes.apple.com/lookup?id=${id}&country=US&media=podcast&entity=podcastEpisode&limit=200`
     )
     const data = await response.json()
     console.log('Episodes ', data)

@@ -21,6 +21,9 @@ a{
 .navbar {
   padding: 8px 0;
   border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   h1 {
     color: #3c22ff;
     font-size: 18px;
