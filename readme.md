@@ -14,10 +14,6 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 2. Entra en la carpeta del proyecto con `cd podcaster`
 3. Instala las dependencias con `npm install`
 
-## Uso
-
-1. Arranca el servidor de desarrollo con `npm run dev`
-
 ## Desarrollado con
 
 - [React](https://es.reactjs.org/)
@@ -25,7 +21,12 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 - [Vite](https://vitejs.com/)
 - [SASS](https://sass-lang.com/)
 
-## Modo Producción
+
+## Uso para desarrollo
+
+1. Arranca el servidor de desarrollo con `npm run dev`
+
+## Uso para Producción
 
 1. Ejecuta `npm run build` para construir la aplicación en modo producción
 2. Sirve los archivos generados en la carpeta `dist` en tu servidor web.
