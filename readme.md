@@ -13,7 +13,7 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 1. Clona este repositorio en tu máquina local usando `git clone https://github.com/ezpinoza/podcaster`
 2. Entra en la carpeta del proyecto con `cd podcaster`
 3. Instala las dependencias con `npm install`
-4. Esta aplicación hace uso de https://cors-anywhere.herokuapp.com/ para su correcto funcionamiento.
+4. Esta aplicación hace uso de cors (https://cors-anywhere.herokuapp.com/) para su correcto funcionamiento.
 
 ## Desarrollado con
 
