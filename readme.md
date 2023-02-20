@@ -36,12 +36,11 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 
 Ejecuta `npm run test` para correr los tests.
 
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Ver [LICENSE](LICENSE) para más información.
-
 
 ## Créditos
 
 - Ramón Espinosa (https://github.com/ezpinoza) por crear y mantener el proyecto.
 
+## Licencia
+
+Este proyecto está bajo la licencia MIT. Ver [LICENSE](LICENSE) para más información.
