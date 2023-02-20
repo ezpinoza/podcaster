@@ -23,6 +23,7 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 - [React](https://es.reactjs.org/)
 - [React Router](https://reactrouter.com/web/guides/quick-start)
 - [Vite](https://vitejs.com/)
+- [SASS](https://sass-lang.com/)
 
 ## Modo Producción
 
