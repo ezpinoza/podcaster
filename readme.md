@@ -22,7 +22,7 @@ Aplicación web que muestra los 100 principales podcasts permitiéndote filtrarl
 - [SASS](https://sass-lang.com/)
 
 
-## Uso para desarrollo
+## Uso para Desarrollo
 
 1. Arranca el servidor de desarrollo con `npm run dev`
 
